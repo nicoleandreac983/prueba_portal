@@ -1,0 +1,14 @@
+<h1>Ofertas a las que has aplicado</h1>
+
+<% @applied_offers.each do |job_offer| %>
+    <div class="card">
+        <div class="card-body">
+        <h5 class="card-title"><%= job_offer.title %></h5>
+        <p class="card-text"><%= job_offer.description %></p>
+        </div>
+    </div>
+<% end %>
+
+
+
+

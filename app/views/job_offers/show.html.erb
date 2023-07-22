@@ -1,0 +1,10 @@
+<h1><%= @job_offer.title %></h1>
+<p><%= @job_offer.description %></p>
+
+<!-- Otros detalles de la oferta -->
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to "Editar", edit_job_offer_path(@job_offer), class: "btn btn-primary" %>
+  <%= link_to "Eliminar", job_offer_path(@job_offer), method: :delete, data: { confirm: "¿Estás seguro de que quieres eliminar esta oferta?" }, class: "btn btn-danger" %>
+  <%= link_to "Postulados", applications_path, class: "btn btn-info" %>
+<% end %>
+<%= link_to 'Ver usuarios que aplicaron', applicants_job_offer_path(@job_offer), class: 'btn btn-primary' %>

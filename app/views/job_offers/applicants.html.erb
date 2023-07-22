@@ -1,0 +1,14 @@
+<h1>Usuarios que aplicaron a la oferta:</h1>
+
+<% @applicants.each do |user| %>
+  <div class="card mb-3">
+    <div class="card-header">
+      <%= user.name %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Información de perfil:</h5>
+      <p class="card-text">Teléfono: <%= user.phone %></p>
+      <!-- Agrega más información del perfil del usuario si lo deseas -->
+    </div>
+  </div>
+<% end %>

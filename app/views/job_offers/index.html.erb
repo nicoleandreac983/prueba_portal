@@ -1,0 +1,25 @@
+<h1>Ofertas Laborales</h1>
+
+<% if user_signed_in? %>
+    <% if current_user.admin? %>
+        <%= link_to "Nueva Oferta", new_job_offer_path, class: "btn btn-success" %>
+        <%= link_to "Postulados", applications_path, class: "btn btn-info" %>
+        <%= link_to "Registrar cuenta", new_user_registration_path, class: "btn btn-dark" %>
+    <% end %>
+<% end %>
+
+<% @job_offers.each do |job_offer| %>
+    <div class="card">
+        <div class="card-body">
+        <h5 class="card-title"><%= job_offer.title %></h5>
+        <p class="card-text"><%= job_offer.description %></p>
+        <%= job_offer.updated_at %>
+        <% if user_signed_in? && current_user.normal_user? %>
+            <%= button_to "Aplicar", apply_job_offer_path(job_offer), method: :post, class: "btn btn-primary" %>
+        <% elsif user_signed_in? && current_user.admin? %>
+            <%= link_to "Editar oferta", edit_job_offer_path(job_offer), class: "btn btn-warning" %>
+        <% end %>
+        </div>
+    </div>
+<% end %>
+

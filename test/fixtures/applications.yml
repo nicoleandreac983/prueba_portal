@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+first_application:
+  id: 1
+  job_offer_id: 1
+  user_id: 1   # Asocia esta aplicación al usuario con ID 1
+  # Resto de los campos para la aplicación
+
+second_application:
+  id: 2
+  job_offer_id: 2
+  user_id: 1   # Asocia esta aplicación al usuario con ID 2
+  

@@ -1,0 +1,25 @@
+<h1>Editar Oferta Laboral</h1>
+
+<%= form_with(model: @job_offer, url: job_offer_path(@job_offer), method: :patch) do |form| %>
+    <div class="form-group">
+        <%= form.label :title, "Título de la oferta" %>
+        <%= form.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :description, "Descripción de la oferta" %>
+        <%= form.text_area :description, class: "form-control" %>
+    </div>
+
+    <!-- Agrega aquí más campos que desees editar -->
+
+    <div class="actions">
+        <%= form.submit "Guardar cambios", class: "btn btn-primary" %>
+    </div>
+<% end %>
+
+<%= link_to "Volver", job_offer_path(@job_offer), class: "btn btn-secondary" %>
+<%= link_to 'Ver usuarios que aplicaron', applicants_job_offer_path(@job_offer), class: 'btn btn-primary' %>
+    <% if user_signed_in? && current_user.admin? %>
+        <%= button_to "Eliminar", job_offer_path(@job_offer), method: :delete, data: { confirm: "¿Estás seguro de que quieres eliminar esta oferta?" }, class: "btn btn-danger" %>
+    <% end %>

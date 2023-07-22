@@ -1,0 +1,22 @@
+<h1>Lista de Postulados</h1>
+
+<table>
+    <thead>
+        <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Telefono</th>
+        <!-- Agrega aquí más columnas si es necesario -->
+        </tr>
+    </thead>
+    <tbody>
+        <% @applications.each do |application| %>
+        <tr>
+            <td><%= application.name %></td>
+            <td><%= application.email %></td>
+            <td><%= application.phone %></td>
+            <!-- Agrega aquí más columnas si es necesario -->
+        </tr>
+        <% end %>
+    </tbody>
+</table>
